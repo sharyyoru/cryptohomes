@@ -27,7 +27,8 @@ const Loader = ({ onComplete }) => {
     <AnimatePresence>
       {showLoader && (
         <motion.div
-          className="fixed inset-0 z-[100] bg-[#0a0a0f] flex flex-col items-center justify-center"
+          className="fixed inset-0 z-[100] bg-[#0a0a0f] flex flex-col items-center justify-center overflow-hidden"
+          style={{ width: '100vw', height: '100vh', left: 0, top: 0 }}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
@@ -64,20 +65,20 @@ const Loader = ({ onComplete }) => {
 
           {/* Logo Animation */}
           <motion.div
-            className="relative z-10 mb-8"
+            className="relative z-10 mb-8 flex items-center justify-center"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: 'backOut' }}
           >
             <motion.div
-              className="relative"
+              className="relative flex items-center justify-center"
               animate={{ rotateY: [0, 360] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             >
               <img 
                 src="/img/logo/logo-3.png" 
                 alt="CryptoHomes" 
-                className="w-32 h-32 object-contain"
+                className="w-24 h-24 sm:w-32 sm:h-32 object-contain"
               />
             </motion.div>
             
@@ -136,7 +137,7 @@ const Loader = ({ onComplete }) => {
 
           {/* Progress Bar */}
           <motion.div
-            className="relative z-10 w-48"
+            className="relative z-10 w-48 max-w-[80vw] px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}

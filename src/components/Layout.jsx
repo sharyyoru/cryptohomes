@@ -8,11 +8,11 @@ import {
 
 // Background Orbs
 export const BackgroundOrbs = () => (
-  <>
-    <div className="fixed w-[500px] h-[500px] rounded-full bg-gradient-radial from-crypto-teal/20 to-transparent blur-[100px] -top-48 -right-48 pointer-events-none z-0" />
-    <div className="fixed w-[400px] h-[400px] rounded-full bg-gradient-radial from-crypto-purple/15 to-transparent blur-[100px] bottom-20 -left-48 pointer-events-none z-0" />
-    <div className="fixed w-[300px] h-[300px] rounded-full bg-gradient-radial from-crypto-pink/10 to-transparent blur-[100px] top-1/2 right-0 pointer-events-none z-0" />
-  </>
+  <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-radial from-crypto-teal/20 to-transparent blur-[100px] -top-48 -right-48" />
+    <div className="absolute w-[400px] h-[400px] rounded-full bg-gradient-radial from-crypto-purple/15 to-transparent blur-[100px] bottom-20 -left-48" />
+    <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-radial from-crypto-pink/10 to-transparent blur-[100px] top-1/2 right-0" />
+  </div>
 )
 
 // Header Component
@@ -177,6 +177,7 @@ export const BottomNav = () => {
 // Page Transition Wrapper
 export const PageTransition = ({ children }) => (
   <motion.div
+    className="overflow-x-hidden w-full max-w-[100vw]"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}

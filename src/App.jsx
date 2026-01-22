@@ -45,7 +45,7 @@ function App() {
     <>
       <Loader onComplete={() => setIsLoading(false)} />
       <Router>
-        <div className={`min-h-screen bg-[#0a0a0f] relative transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`min-h-screen bg-[#0a0a0f] relative transition-opacity duration-500 overflow-x-hidden w-full max-w-[100vw] ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
           <BackgroundOrbs />
           <Header />
           <AnimatedRoutes />

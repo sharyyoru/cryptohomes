@@ -507,7 +507,7 @@ const sampleProperties = [
 const HomePage = () => {
   return (
     <PageTransition>
-      <main className="pt-20 pb-28 px-4 relative z-10">
+      <main className="pt-20 pb-28 px-4 relative z-10 overflow-x-hidden w-full">
         <HeroSection />
         <StatsSection />
         <QuickActions />
