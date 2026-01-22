@@ -353,14 +353,15 @@ const AIAgent = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-0 left-0 right-0 top-0 z-50 flex items-end justify-center sm:items-center sm:p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            style={{ width: '100vw', height: '100vh' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             {/* Backdrop */}
             <motion.div
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -369,15 +370,15 @@ const AIAgent = () => {
             
             {/* Chat Container */}
             <motion.div
-              className="relative w-full sm:max-w-md h-[85vh] sm:h-[600px] glass-dark rounded-t-3xl sm:rounded-3xl flex flex-col overflow-hidden"
-              initial={{ y: '100%', scale: 0.9 }}
+              className="relative w-full h-full max-w-[100vw] max-h-[100vh] glass-dark flex flex-col overflow-hidden"
+              initial={{ y: '100%', scale: 0.95 }}
               animate={{ y: 0, scale: 1 }}
-              exit={{ y: '100%', scale: 0.9 }}
+              exit={{ y: '100%', scale: 0.95 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             >
               {/* Header */}
-              <div className="relative px-4 py-4 border-b border-white/10">
-                <div className="absolute inset-0 bg-gradient-to-r from-crypto-teal/20 to-crypto-purple/20" />
+              <div className="relative px-4 py-4 border-b border-white/10 safe-top bg-[#0a0a0f]">
+                <div className="absolute inset-0 bg-gradient-to-r from-crypto-teal/10 to-crypto-purple/10" />
                 <div className="relative flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <motion.div 
@@ -430,7 +431,7 @@ const AIAgent = () => {
               </div>
 
               {/* Input */}
-              <div className="p-4 border-t border-white/10">
+              <div className="p-4 border-t border-white/10 safe-bottom bg-[#0a0a0f]">
                 <div className="flex items-center gap-2">
                   <motion.button
                     className="p-2.5 glass rounded-xl text-gray-500 hover:text-crypto-teal transition-colors"

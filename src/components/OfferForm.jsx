@@ -471,14 +471,15 @@ const OfferForm = ({ isOpen, onClose, property }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ width: '100vw', height: '100vh' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           {/* Backdrop */}
           <motion.div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -487,14 +488,14 @@ const OfferForm = ({ isOpen, onClose, property }) => {
           
           {/* Modal */}
           <motion.div
-            className="relative w-full sm:max-w-md max-h-[90vh] overflow-y-auto glass-dark rounded-t-3xl sm:rounded-3xl"
+            className="relative w-full h-full max-w-[100vw] max-h-[100vh] overflow-y-auto glass-dark flex flex-col"
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
           >
             {/* Header */}
-            <div className="sticky top-0 z-10 px-4 py-4 border-b border-white/10 bg-[#0a0a0f]/95 backdrop-blur-xl rounded-t-3xl">
+            <div className="sticky top-0 z-10 px-4 py-4 border-b border-white/10 bg-[#0a0a0f] safe-top">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <motion.div 
@@ -537,7 +538,7 @@ const OfferForm = ({ isOpen, onClose, property }) => {
             
             {/* Footer */}
             {!isComplete && (
-              <div className="sticky bottom-0 p-4 border-t border-white/10 bg-[#0a0a0f]/95 backdrop-blur-xl">
+              <div className="sticky bottom-0 p-4 border-t border-white/10 bg-[#0a0a0f] safe-bottom">
                 <div className="flex gap-3">
                   {currentStep > 0 && (
                     <motion.button
@@ -579,7 +580,7 @@ const OfferForm = ({ isOpen, onClose, property }) => {
             )}
             
             {isComplete && (
-              <div className="p-4 border-t border-white/10">
+              <div className="p-4 border-t border-white/10 safe-bottom bg-[#0a0a0f]">
                 <motion.button
                   className="w-full py-3 glass-button rounded-xl font-medium"
                   onClick={resetForm}
